@@ -36,7 +36,12 @@ Thermostat.prototype = {
     } else {
       this._powerSaveMode = 'on';
     }
-}};
+  },
+  loadTemp: function(temp, power) {
+    this._temperature = temp;
+    this._powerSaveMode = power;
+  }
+};
 
 Thermostat.prototype.powerSaveStatus = function() {
   if (this._powerSaveMode === 'on') {

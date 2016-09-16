@@ -14,8 +14,14 @@ class App < Sinatra::Base
     erb :layout
   end
 
+  get '/temperature' do
+    thermostat = Thermostat.last
+    content_type :json
+    {temp2: thermostat.temp, powermode2: thermostat.powermode}.to_json
+  end
+
   post '/temperature' do
-    thermostat = Thermostat.create(temp: params[:temp])
+    thermostat = Thermostat.create(temp: params[:temp], powermode: params[:powermode])
   end
 
   # start the server if ruby file executed directly
