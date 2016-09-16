@@ -16,7 +16,6 @@ class App < Sinatra::Base
 
   get '/temperature' do
     thermostat = Thermostat.last
-    content_type :json
     {temp2: thermostat.temp, powermode2: thermostat.powermode}.to_json
   end
 

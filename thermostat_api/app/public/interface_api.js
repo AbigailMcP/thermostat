@@ -2,7 +2,7 @@ $(document).ready(function() {
 
   var thermostat = new Thermostat();
 
-    $.get("http://localhost:9292/temperature", function(details){
+    $.getJSON("http://localhost:9292/temperature", function(details){
     var temp = details.temp2;
     var powermode = details.powermode2;
     thermostat.loadTemp(temp, powermode);
